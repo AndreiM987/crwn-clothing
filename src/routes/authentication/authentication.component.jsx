@@ -4,7 +4,7 @@
 ///////////
 // Comments are for the Redirect Sign In with Google
 
-import "./authentication.styles.scss";
+import { AuthenticationContainer } from "./authentication.styles.jsx";
 
 import SignUpForm from "../../components/sign-up-form/sign-up-form.component";
 
@@ -19,13 +19,13 @@ const Authentication = () => {
   //   }, []);
 
   return (
-    <div className="authentication-container">
+    <AuthenticationContainer>
       <SignInForm />
       <SignUpForm />
       {/* <button onClick={signInWithGoogleRedirect}>
         Sign in with Google Redirect
       </button> */}
-    </div>
+    </AuthenticationContainer>
   );
 };
 

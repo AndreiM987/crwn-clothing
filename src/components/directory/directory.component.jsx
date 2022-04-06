@@ -1,58 +1,55 @@
-import React from "react";
-import MenuItem from "../menu-item/menu-item.component";
-import "./directory.styles.scss";
+import DirectoryItem from "../directory-item/directory-item.component";
 
-class Directory extends React.Component {
-  constructor() {
-    super();
+import { DirectoryContainer } from "./directory.styles.jsx";
 
-    this.state = {
-      sections: [
-        {
-          title: "hats",
-          imageUrl: "https://i.ibb.co/cvpntL1/hats.png",
-          id: 1,
-          linkUrl: "hats",
-        },
-        {
-          title: "jackets",
-          imageUrl: "https://i.ibb.co/px2tCc3/jackets.png",
-          id: 2,
-          linkUrl: "jackets",
-        },
-        {
-          title: "sneakers",
-          imageUrl: "https://i.ibb.co/0jqHpnp/sneakers.png",
-          id: 3,
-          linkUrl: "sneakers",
-        },
-        {
-          title: "womens",
-          imageUrl: "https://i.ibb.co/GCCdy8t/womens.png",
-          size: "large",
-          id: 4,
-          linkUrl: "womens",
-        },
-        {
-          title: "mens",
-          imageUrl: "https://i.ibb.co/R70vBrQ/men.png",
-          size: "large",
-          id: 5,
-          linkUrl: "mens",
-        },
-      ],
-    };
-  }
+const categories = [
+  {
+    title: "hats",
+    imageUrl: "https://i.ibb.co/cvpntL1/hats.png",
+    id: 1,
+    linkUrl: "hats",
+    route: "shop/hats",
+  },
+  {
+    title: "jackets",
+    imageUrl: "https://i.ibb.co/px2tCc3/jackets.png",
+    id: 2,
+    linkUrl: "jackets",
+    route: "shop/jackets",
+  },
+  {
+    title: "sneakers",
+    imageUrl: "https://i.ibb.co/0jqHpnp/sneakers.png",
+    id: 3,
+    linkUrl: "sneakers",
+    route: "shop/sneakers",
+  },
+  {
+    title: "womens",
+    imageUrl: "https://i.ibb.co/GCCdy8t/womens.png",
+    size: "large",
+    id: 4,
+    linkUrl: "womens",
+    route: "shop/womens",
+  },
+  {
+    title: "mens",
+    imageUrl: "https://i.ibb.co/R70vBrQ/men.png",
+    size: "large",
+    id: 5,
+    linkUrl: "mens",
+    route: "shop/mens",
+  },
+];
 
-  render() {
-    return (
-      <div className="directory-menu">
-        {this.state.sections.map(({ id, ...otherSectionProps }) => (
-          <MenuItem key={id} {...otherSectionProps} />
-        ))}
-      </div>
-    );
-  }
-}
+const Directory = () => {
+  return (
+    <DirectoryContainer>
+      {categories.map((category) => (
+        <DirectoryItem key={category.id} category={category} />
+      ))}
+    </DirectoryContainer>
+  );
+};
 
 export default Directory;

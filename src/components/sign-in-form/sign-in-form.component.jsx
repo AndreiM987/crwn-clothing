@@ -2,9 +2,9 @@ import FormInput from "../form-input/form-input.component";
 
 import { useState } from "react";
 
-import Button from "../button/button.component";
+import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
 
-import "./sign-in-form.styles.scss";
+import { SignInContainer, ButtonsContainer } from "./sign-in-form.styles.jsx";
 
 import {
   //   auth,
@@ -62,7 +62,7 @@ const SignInForm = () => {
   };
 
   return (
-    <div className="sign-up-container">
+    <SignInContainer>
       <h2>I already have an account</h2>
       <span>Sign in with your email an password</span>
       <form onSubmit={handleSubmit}>
@@ -83,16 +83,18 @@ const SignInForm = () => {
           value={password}
         />
 
-        <div className="buttons-container">
-          <Button buttonType="default" type="submit">
-            SIGN IN
-          </Button>
-          <Button type="button" buttonType="google" onClick={signInWithGoogle}>
+        <ButtonsContainer>
+          <Button type="submit">SIGN IN</Button>
+          <Button
+            type="button"
+            buttonType={BUTTON_TYPE_CLASSES.google}
+            onClick={signInWithGoogle}
+          >
             GOOGLE SIGN IN
           </Button>
-        </div>
+        </ButtonsContainer>
       </form>
-    </div>
+    </SignInContainer>
   );
 };
 
